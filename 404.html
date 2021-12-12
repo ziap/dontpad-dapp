@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        html, body {
+            height: 100%;
+        }
+        textarea {
+            border: 0;
+            width: calc(100% - 20px);
+            height: calc(100% - 20px);
+            resize: none;
+            overflow: auto;
+            padding: 10px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <textarea cols="30" rows="10"></textarea>
+    <script type="module">
+        import GUN from 'https://esm.sh/gun'
+        const gun = GUN('https://gun-manhattan.herokuapp.com/gun')
+        document.title = decodeURI(location.pathname.split('/').pop()) + ' | Dontpad Dapp'
+        const editor = document.querySelector('textarea')
+        const text = gun.get('dontpad').get(location.pathname)
+        text.on(data => editor.value = data)
+        editor.addEventListener('input', () => text.put(editor.value))
+        editor.focus()
+    </script>
+</body>
+</html>

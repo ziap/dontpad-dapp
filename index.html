@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="/static/home.css" />
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <title>Dontpad Dapp</title>
+    <style>
+        body {
+            font-size: 16px;
+            font-family: Arial, Helvetica, Tahoma, Verdana;
+        }
+
+        h1 {
+            margin-top: 60px;
+            text-align: center;
+            font-size: 60px;
+        }
+
+        #pathToGo {
+            text-align: center;
+            font-size: 21px;
+        }
+
+        #pathToGo input,
+        #pathToGo button {
+            font-size: 21px;
+        }
+
+        #intro {
+            padding-top: 40px;
+            margin: 0 auto;
+            width: 510px;
+        }
+
+        #texto {
+            text-align: left;
+            font-size: 19px;
+            line-height: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>DONTPAD</h1>
+
+    <div id="pathToGo">
+        <form>
+            /dontpad-dapp/
+            <input type="text" id="path" name="path" autocapitalize="off" autocorrect="off" />
+            <button type="submit">Go!</button>
+        </form>
+    </div>
+
+    <div id="intro">
+        <div id="texto">
+            Dont login, just use a URL<br />
+            Dont save, text is auto-saved<br />
+            Dont juggle attached files, edit online with your friends<br />
+            <del>lose your content, download with YourURL.zip</del><br />
+            Dont forget, you can use yourURL/yourFolder/yourSubfolder<br />
+            Dontpad! But decentralized<br />
+        </div>
+    </div>
+</body>
+<script type="module">
+    const form = document.querySelector('form')
+    const path = document.querySelector('#path')
+    form.addEventListener('submit', (e) => {
+        e.preventDefault()
+        location.href = '/dontpad-dapp/' + path.value
+    })
+</script>
+</html>
