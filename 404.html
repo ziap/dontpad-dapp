@@ -32,8 +32,8 @@
         document.title = decodeURI(location.pathname.split('/').pop()) + ' | Dontpad Dapp'
         const editor = document.querySelector('textarea')
         const text = gun.get('dontpad').get(location.pathname)
-        text.on(data => editor.value = data.join('\n'))
-        editor.addEventListener('input', () => text.put(editor.value.split('\n')))
+        text.on(data => editor.value = data.split('\\n').join('\n'))
+        editor.addEventListener('input', () => text.put(editor.value))
         editor.focus()
     </script>
 </body>
